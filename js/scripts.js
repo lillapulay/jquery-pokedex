@@ -32,19 +32,19 @@ var pokemonRepository = (function () {
   }
 
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (pokemon) {
-        var pokemon = {
-          name: pokemon.name,
-          detailsUrl: pokemon.url
-        };
-        add(pokemon);
+    return $.ajax(apiUrl)
+      .then(function(json) {
+        json.results.forEach(function(pokemon) {
+          var pokemon = {
+            name: pokemon.name,
+            detailsUrl: pokemon.url
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function(e) {
+        console.error(e);
       });
-    }).catch(function (e) {
-      console.error(e);
-    })
   }
 
   function loadDetails(pokemon) {
