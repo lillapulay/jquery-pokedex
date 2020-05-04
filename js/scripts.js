@@ -2,8 +2,7 @@
 var pokemonRepository = (function () {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var $modalContainer = document.querySelector('#modal-container');
-  var $modalContainer2 = $('#modal-container');
+  var $modalContainer = $('#modal-container');
 
   // defining public functions separately
   function add(pokemon) {
@@ -70,11 +69,11 @@ var pokemonRepository = (function () {
 
   function showModal(pokemon) {
     // Clear all existing modal content
-    $modalContainer2.html('');
-    $modalContainer2.addClass('is-visible');
+    $modalContainer.html('');
+    $modalContainer.addClass('is-visible');
 
     var $modal = $('<div class="modal"></div>');
-    $modalContainer2.append($modal);
+    $modalContainer.append($modal);
 
     // Adding the new modal content
     var $closeButtonElement = $('<button class = "modal-close"></button>').html('Close');
@@ -83,7 +82,8 @@ var pokemonRepository = (function () {
     var $nameElement = $('<h1></h1>').html(pokemon.name);
     $modal.append($nameElement);
 
-    var $imageElement = $('<img>').html(pokemon.imageUrl);
+    // Img takes .attr, not .html!!! 'src' is needed
+    var $imageElement = $('<img>').attr('src', pokemon.imageUrl);
     $modal.append($imageElement);
 
     var $heightElement = $('<p></p>').html('Height: ' + pokemon.height);
@@ -104,6 +104,20 @@ var pokemonRepository = (function () {
   function hideModal() {
     $modalContainer.removeClass('is-visible');
   }
+
+  $(window).on('keydown', (e) => {
+     if (e.key === 'Escape' && $modalContainer.hasClass('is-visible')) {
+       hideModal();
+     }
+   });
+
+   // Modal closes upon clicking outside of it
+   $modalContainer.on('click', (e) => {
+   var target = e.target;
+   if ($(target).is($modalContainer)) {
+     hideModal();
+   }
+ });
 
 /* Event listeners removed */
 
