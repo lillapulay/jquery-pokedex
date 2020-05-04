@@ -1,0 +1,129 @@
+/* Will define variables a little further into this exercise */
+
+body {
+  background-color: #FFE4C4;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #A0522D;
+  padding-top: 15px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.my-button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: #ffad33;
+  color: #FFEFD5;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: capitalize;
+  /*padding: 10px;*/
+  border-radius: 15px;
+  border-bottom: 2px solid #2b2b2b;
+  transition-duration: 0.4s;
+  transition-property: opacity;
+  /* Will adjust depending on final outlook */
+  width: 70%;
+  max-width: 550px;
+  min-width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.my-button:hover,
+.my-button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.listing {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pokemon-list {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+}
+
+.pokemon-list li {
+  margin: 0;
+}
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* To show it above other content */
+  z-index: 999;
+
+  /* To allow scrolling if the screen is not high enough*/
+  overflow: auto;
+
+  /* To center the modal */
+  display: grid;
+  text-align: center;
+}
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  background: #FAEBD7;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+}
+
+.modal h1 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal p {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/*.modal img {
+  width: 150px;
+  height: auto;
+}*/
+
+/* Will improve this part once the site has a little more content and button sizes are clear*/
+@media all and (max-width: 750px) {
+  .pokemon-list li {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+}
