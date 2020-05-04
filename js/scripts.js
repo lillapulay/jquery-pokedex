@@ -18,7 +18,6 @@ var pokemonRepository = (function () {
     var $pokemonList = $('.pokemon-list');
     var $listItem = $('<li class="list-item"></li>');
     var $button = $('<button class="my-button"></button').html(pokemon.name);
-    //$button.html(pokemon.name);
     $pokemonList.append($listItem);
     $listItem.append($button);
     $button.on("click", function() {
@@ -132,7 +131,7 @@ var pokemonRepository = (function () {
       hideModal();
     }
   });
-  
+
   return {
     add: add,
     getAll: getAll,
