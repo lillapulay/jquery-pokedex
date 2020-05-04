@@ -55,8 +55,6 @@ var pokemonRepository = (function () {
       pokemon.imageUrl = details.sprites.front_default;
       pokemon.height = details.height;
       pokemon.weight = details.weight;
-      // I tried to re-write the following 2 attributes using Object.keys, but it only returns
-      // 0 and 1 - look into solution
       pokemon.types = [];
         for (var i = 0; i < details.types.length; i++) {
           pokemon.types.push(details.types[i].type.name);
@@ -72,65 +70,42 @@ var pokemonRepository = (function () {
 
   function showModal(pokemon) {
     // Clear all existing modal content
-    $modalContainer.innerHTML = '';
+    $modalContainer2.html('');
+    $modalContainer2.addClass('is-visible');
 
-    var modal = document.createElement('div');
-    modal.classList.add('modal');
+    var $modal = $('<div class="modal"></div>');
+    $modalContainer2.append($modal);
 
-    // Add the new modal content
-    var closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
+    // Adding the new modal content
+    var $closeButtonElement = $('<button class = "modal-close"></button>').html('Close');
+    $modal.append($closeButtonElement);
 
-    var nameElement = document.createElement('h1');
-    nameElement.innerText = pokemon.name;
+    var $nameElement = $('<h1></h1>').html(pokemon.name);
+    $modal.append($nameElement);
 
-    var imageElement = document.createElement('img');
-    imageElement.setAttribute("src", pokemon.imageUrl);
+    var $imageElement = $('<img>').html(pokemon.imageUrl);
+    $modal.append($imageElement);
 
-    var heightElement = document.createElement('p');
-    heightElement.innerText = 'Height: ' + pokemon.height;
+    var $heightElement = $('<p></p>').html('Height: ' + pokemon.height);
+    $modal.append($heightElement);
 
-    var weightElement = document.createElement('p');
-    weightElement.innerText = 'Weight: ' + pokemon.weight;
+    var $weightElement = $('<p></p>').html('Weight: ' + pokemon.weight);
+    $modal.append($weightElement);
 
-    var typesElement = document.createElement('p');
-    typesElement.innerText = 'Type: ' + pokemon.types.join(', ');
+    var $typesElement = $('<p></p>').html('Type: ' + pokemon.types.join(', '));
+    $modal.append($typesElement);
 
-    var abilitiesElement = document.createElement('p');
-    abilitiesElement.innerText = 'Abilities: ' + pokemon.abilities.join(', ');
+    var $abilitiesElement = $('<p></p>').html('Abilities: ' + pokemon.abilities.join(', '));
+    $modal.append($abilitiesElement);
 
-    modal.append(closeButtonElement);
-    modal.append(nameElement);
-    modal.append(imageElement);
-    modal.append(heightElement);
-    modal.append(weightElement);
-    modal.append(typesElement);
-    modal.append(abilitiesElement);
-    $modalContainer.appendChild(modal);
-
-    $modalContainer.classList.add('is-visible');
+    $closeButtonElement.on('click', hideModal);
   }
 
   function hideModal() {
-    $modalContainer.classList.remove('is-visible');
+    $modalContainer.removeClass('is-visible');
   }
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-
-  $modalContainer.addEventListener('click', (e) => {
-    /* Since this is also triggered when clicking INSIDE the modal container,
-    We only want to close if the user clicks directly on the overlay */
-    var target = e.target;
-    if (target === $modalContainer) {
-      hideModal();
-    }
-  });
+/* Event listeners removed */
 
   return {
     add: add,
