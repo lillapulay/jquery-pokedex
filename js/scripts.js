@@ -18,7 +18,6 @@ var pokemonRepository = (function () {
     var $pokemonList = $('.pokemon-list');
     var $listItem = $('<li class="list-item"></li>');
     var $button = $('<button class="my-button"></button').html(pokemon.name);
-
     //$button.html(pokemon.name);
     $pokemonList.append($listItem);
     $listItem.append($button);
@@ -27,10 +26,48 @@ var pokemonRepository = (function () {
     })
   }
 
-
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
       showModal(pokemon);
+    });
+  }
+
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (pokemon) {
+        var pokemon = {
+          name: pokemon.name,
+          detailsUrl: pokemon.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  function loadDetails(pokemon) {
+    var url = pokemon.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.weight = details.weight;
+      // For types and abilities I'm not sure how to add a space for when the modal lists them - variablename.join(', '); - if it solves it, how do I implement it?
+      pokemon.types = [];
+        for (var i = 0; i < details.types.length; i++) {
+          pokemon.types.push(details.types[i].type.name);
+        };
+      pokemon.abilities = [];
+        for (var i = 0; i < details.abilities.length; i++) {
+          pokemon.abilities.push(details.abilities[i].ability.name);
+        };
+    }).catch(function (e) {
+      console.error(e);
     });
   }
 
@@ -95,46 +132,7 @@ var pokemonRepository = (function () {
       hideModal();
     }
   });
-
-  function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (pokemon) {
-        var pokemon = {
-          name: pokemon.name,
-          detailsUrl: pokemon.url
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      console.error(e);
-    })
-  }
-
-  function loadDetails(pokemon) {
-    var url = pokemon.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      // Now we add the details to the item
-      pokemon.imageUrl = details.sprites.front_default;
-      pokemon.height = details.height;
-      pokemon.weight = details.weight;
-      // For types and abilities I'm not sure how to add a space for when the modal lists them - variablename.join(', '); - if it solves it, how do I implement it?
-      pokemon.types = [];
-        for (var i = 0; i < details.types.length; i++) {
-          pokemon.types.push(details.types[i].type.name);
-        };
-      pokemon.abilities = [];
-        for (var i = 0; i < details.abilities.length; i++) {
-          pokemon.abilities.push(details.abilities[i].ability.name);
-        };
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-
+  
   return {
     add: add,
     getAll: getAll,
