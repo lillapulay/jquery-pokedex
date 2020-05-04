@@ -98,6 +98,7 @@ var pokemonRepository = (function () {
     var $abilitiesElement = $('<p></p>').html('Abilities: ' + pokemon.abilities.join(', '));
     $modal.append($abilitiesElement);
 
+   // Modal closes upon clicking the close button
     $closeButtonElement.on('click', hideModal);
   }
 
@@ -105,6 +106,7 @@ var pokemonRepository = (function () {
     $modalContainer.removeClass('is-visible');
   }
 
+   // Modal closes upon hitting Esc
   $(window).on('keydown', (e) => {
      if (e.key === 'Escape' && $modalContainer.hasClass('is-visible')) {
        hideModal();
@@ -113,13 +115,11 @@ var pokemonRepository = (function () {
 
    // Modal closes upon clicking outside of it
    $modalContainer.on('click', (e) => {
-   var target = e.target;
-   if ($(target).is($modalContainer)) {
-     hideModal();
-   }
- });
-
-/* Event listeners removed */
+     var target = e.target;
+     if ($(target).is($modalContainer)) {
+       hideModal();
+     }
+   });
 
   return {
     add: add,
