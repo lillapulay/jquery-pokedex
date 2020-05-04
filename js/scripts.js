@@ -49,14 +49,14 @@ var pokemonRepository = (function () {
 
   function loadDetails(pokemon) {
     var url = pokemon.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
+    return $.ajax(url)
+      .then(function(details) {
       // Now we add the details to the item
       pokemon.imageUrl = details.sprites.front_default;
       pokemon.height = details.height;
       pokemon.weight = details.weight;
-      // For types and abilities I'm not sure how to add a space for when the modal lists them - variablename.join(', '); - if it solves it, how do I implement it?
+      // I tried to re-write the following 2 attributes using Object.keys, but it only returns
+      // 0 and 1 - look into solution
       pokemon.types = [];
         for (var i = 0; i < details.types.length; i++) {
           pokemon.types.push(details.types[i].type.name);
