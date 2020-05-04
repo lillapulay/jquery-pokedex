@@ -3,6 +3,7 @@ var pokemonRepository = (function () {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   var $modalContainer = document.querySelector('#modal-container');
+  var $modalContainer2 = $('#modal-container');
 
   // defining public functions separately
   function add(pokemon) {
@@ -14,18 +15,16 @@ var pokemonRepository = (function () {
   }
 
   function addListItem(pokemon) {
-    var pokemonList = document.querySelector('.pokemon-list');
-    var listItem = document.createElement('li');
-    var button = document.createElement('button');
-    button.innerText = pokemon.name;
-    button.classList.add('my-button');
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-    //adding an event listener to the button - creating it was enough, no need to querySelector it
-    button.addEventListener('click', function(event) {
-      //calling showDetails as the event handler function
+    var $pokemonList = $('.pokemon-list');
+    var $listItem = $('<li class="list-item"></li>');
+    var $button = $('<button class="my-button"></button').html(pokemon.name);
+
+    //$button.html(pokemon.name);
+    $pokemonList.append($listItem);
+    $listItem.append($button);
+    $button.on("click", function() {
       showDetails(pokemon);
-    });
+    })
   }
 
 
