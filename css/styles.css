@@ -1,7 +1,7 @@
 /* Will define variables a little further into this exercise */
 
 body {
-  background: no-repeat right/50% url("../img/wallpaper3.jpg");
+  background: no-repeat right/50% url("../img/wallpaper3.jpg"); /*Source: https://wallpapercave.com/wp/QxnYBjq.jpg */
   background-size: cover;
   background-attachment: fixed;
   background-color: #cccccc;
@@ -53,7 +53,7 @@ h1 {
 
 .listing {
   text-align: center;
-  margin-bottom: 40px;  
+  margin-bottom: 40px;
   float: left;
   margin-left: 15%;
 }
@@ -98,7 +98,7 @@ h1 {
   display: inline-block;
   box-sizing: border-box;
   /*background-image: linear-gradient(#866a29, #000);*/
-  background: no-repeat bottom/60% url("../img/modalwallpaper.jpg");
+  background: no-repeat bottom/60% url("../img/modalwallpaper.jpg"); /* Source: https://cdn.wallpapersafari.com/52/50/jynW2C.jpg */
   background-color: #000;
   background-size: 100%;
   padding: 15px;
@@ -155,7 +155,7 @@ h1 {
 /* For width smaller than 400px: */
 @media only screen and (max-width: 600px) {
   body {
-    background: no-repeat 50% url("../img/mobilewallpaper.jpg");
+    background: no-repeat 50% url("../img/mobilewallpaper.jpg"); /* Source: https://avante.biz/wp-content/uploads/Pokemon-Mobile-Wallpapers/Pokemon-Mobile-Wallpapers-003.jpg */
     background-size: cover;
     background-attachment: fixed;
   }
