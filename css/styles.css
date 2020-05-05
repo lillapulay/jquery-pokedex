@@ -101,7 +101,15 @@ h1 {
   border: 0;
   background: none;
   color: #777;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+
+.modal-close:hover, .modal-close:focus {
+  cursor: pointer;
+  opacity: 0.7;
+  transition-duration: 0.5s;
+  transition-property: opacity;
 }
 
 .modal h1 {
