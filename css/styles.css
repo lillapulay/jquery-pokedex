@@ -1,28 +1,34 @@
 /* Will define variables a little further into this exercise */
 
 body {
-  background-color: #FFE4C4;
+  background: no-repeat 50% url("../img/wallpaper3.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #cccccc;
   font-family: 'Just Another Hand', sans-serif;
   font-weight: 700;
 }
 
 h1 {
-  font-size: 25px;
-  font-weight: 600;
-  color: #A0522D;
+  font-size: 48px;
+  letter-spacing: 3px;
+  color: #fff5e6;
   padding-top: 15px;
   text-align: center;
-  text-transform: capitalize;
+  text-transform: uppercase;
+
 }
 
 .my-button {
   border: none;
   display: inline-block;
   font-family: inherit;
-  background-color: #ffad33;
+  /*background-color: #ffad33;*/
+  background-image: linear-gradient(to bottom right, #fbcd73, #866a29);
   color: #FFEFD5;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 28px;
+    letter-spacing: 2px;
   text-decoration: none;
   text-transform: capitalize;
   /*padding: 10px;*/
@@ -53,7 +59,9 @@ h1 {
 .pokemon-list {
   list-style-type: none;
   padding: 0;
-  margin: auto;
+  width: 450px;
+  margin-left: 200px;
+  float: left;
 }
 
 .pokemon-list li {
@@ -79,8 +87,8 @@ h1 {
 
   /* To allow scrolling if the screen is not high enough*/
   overflow: auto;
-
   /* To center the modal */
+
   display: grid;
   text-align: center;
 }
@@ -89,12 +97,18 @@ h1 {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: #fff;
+  /*background-image: linear-gradient(#866a29, #000);*/
+  background: no-repeat bottom/60% url("../img/modalwallpaper.jpg");
+  background-color: #000;
+  background-size: 100%;
   padding: 15px;
+  border-radius: 50px;
   width: 100%;
   max-width: 450px;
   text-align: center;
-  background: #FAEBD7;
+  border-width: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #e46d33, #000) 1 100%;
 }
 
 .modal-close {
@@ -102,10 +116,9 @@ h1 {
   -webkit-appearance: none;
   border: 0;
   background: none;
-  color: #777;
+  color: #fff5e6;
   text-decoration: none;
 }
-
 
 .modal-close:hover, .modal-close:focus {
   cursor: pointer;
@@ -117,16 +130,21 @@ h1 {
 .modal h1 {
   margin-top: 10px;
   text-align: center;
+  line-height: 100%;
+  margin-top: 10px;
 }
 
 .modal p {
   text-align: center;
   text-transform: capitalize;
+  color: #fff;
+  font-size: 24px;
+  line-height: 70%;
 }
 
 /*.modal img {
-  width: 150px;
-  height: auto;
+  margin-left: 200px;
+  margin-right: 200px;
 }*/
 
 /* Will improve this part once the site has a little more content and button sizes are clear*/
@@ -134,6 +152,19 @@ h1 {
   .pokemon-list li {
     width: 100%;
     max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* For width smaller than 400px: */
+@media only screen and (max-width: 400px) {
+  body {
+    background: no-repeat 50% url("../img/mobilewallpaper.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .pokemon-list li {
     margin: 0;
   }
 }
