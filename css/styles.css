@@ -1,5 +1,9 @@
 /* Will define variables a little further into this exercise */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: no-repeat right/50% url("../img/wallpaper3.jpg"); /*Source: https://wallpapercave.com/wp/QxnYBjq.jpg */
   background-size: cover;
