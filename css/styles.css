@@ -23,13 +23,32 @@ h1 {
 }
 
 .navbar {
-  background-image: linear-gradient(to right, #251e0e, #3e3015)
+  background-image: linear-gradient(to right, #251e0e, #3e3015);
 }
 
 .nav-item {
   font-size: 24px;
   letter-spacing: 3px;
-  color: #fff5e6;
+}
+
+.navbar a {
+  color: #FFEBCD;
+  transition-duration: 0.5s;
+  transition-property: opacity;
+}
+
+.navbar a:hover, .navbar a:focus {
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.navbar a:visited {
+  color: #FAEBD7;
+}
+
+.navbar a:active {
+  color: #DEB887;
 }
 
 /* Overwriting Bootstrap default */
@@ -64,6 +83,10 @@ h1 {
 .btn:focus {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.list-group-item {
+  margin: 5px;
 }
 
 .close {
