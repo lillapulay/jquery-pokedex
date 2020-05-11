@@ -20,13 +20,14 @@ h1 {
   padding-top: 15px;
   text-align: center;
   text-transform: uppercase;
-
 }
 
-.my-button {
+/* Overwriting Bootstrap default */
+.btn {
   border: none;
   display: inline-block;
   font-family: inherit;
+  background: none;
   /*background-color: #ffad33;*/
   background-image: linear-gradient(to bottom right, #fbcd73, #866a29);
   color: #FFEFD5;
@@ -41,7 +42,7 @@ h1 {
   transition-duration: 0.4s;
   transition-property: opacity;
   /* Will adjust depending on final outlook */
-  width: 70%;
+  width: 100%;
   max-width: 550px;
   min-width: 150px;
   padding-top: 5px;
@@ -49,11 +50,12 @@ h1 {
   margin-bottom: 10px;
 }
 
-.my-button:hover,
-.my-button:focus {
+.btn:hover,
+.btn:focus {
   cursor: pointer;
   opacity: 0.8;
 }
+
 
 .listing {
   text-align: center;
@@ -65,6 +67,7 @@ h1 {
 
 .pokemon-list {
   list-style-type: none;
+  margin-top: 40px;
   padding: 0;
   width: 80%;
 }
