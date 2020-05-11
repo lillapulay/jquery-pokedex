@@ -13,6 +13,30 @@
   </head>
 
   <body>
+    <!-- Navbar -->
+    <div class="container-fluid mb-5">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand" href="https://lillapulay.github.io/portfolio-website/" target="_blank">
+          <img src="img/portfolio.png" height="30" alt="Developer logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link active" href="https://github.com/lillapulay/jquery-pokedex/"
+              target="_blank">GitHub<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="https://www.pokemon.com/us/pokedex/" target="_blank">
+              Official Pokédex
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+    <!-- Original content -->
     <div class='listing'>
       <ul class='pokemon-list'></ul>
     </div>
@@ -21,14 +45,14 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
           <div class="modal-header">
             <h1 class="modal-title" id="exampleModalLabel"></h1>
+
           </div>
           <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>

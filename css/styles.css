@@ -22,6 +22,16 @@ h1 {
   text-transform: uppercase;
 }
 
+.navbar {
+  background-image: linear-gradient(to right, #251e0e, #3e3015)
+}
+
+.nav-item {
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #fff5e6;
+}
+
 /* Overwriting Bootstrap default */
 .btn {
   border: none;
@@ -56,10 +66,21 @@ h1 {
   opacity: 0.8;
 }
 
-.btn-secondary {
-  margin: 0 auto;
-  margin-top: 10px;
-  width: 50%;
+.close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #fff5e6;
+  text-decoration: none;
+  font-size: 32px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.close:hover,
+.close:focus {
+  text-color: white;
 }
 
 .listing {
@@ -100,22 +121,6 @@ h1 {
   border-image: linear-gradient(to bottom, #e46d33, #000) 1 100%;
 }
 
-.close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #fff5e6;
-  text-decoration: none;
-}
-
-.close:hover, .close:focus {
-  cursor: pointer;
-  opacity: 0.7;
-  transition-duration: 0.5s;
-  transition-property: opacity;
-}
-
 #exampleModalLabel {
   margin: 0 auto;
   text-align: center;
@@ -142,20 +147,14 @@ h1 {
   .listing {
     float: none;
     width: 80%;
-    margin: 0 auto;
   }
 
   .pokemon-list {
+    margin-top: 160px;
     width: 100%;
-    margin: 0 auto;
   }
 
   .pokemon-list li {
     max-width: 100%;
   }
 }
-
-/* For width smaller than 400px: */
-/*@media only screen and (max-width: 600px) {
-
-}*/
