@@ -2,7 +2,6 @@
 var pokemonRepository = (function () {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  var modalContainer = $('#modal-container');
 
   // defining public functions separately
   function add(pokemon) {
@@ -16,7 +15,8 @@ var pokemonRepository = (function () {
   function addListItem(pokemon) {
     var pokemonList = $('.pokemon-list');
     var listItem = $('<li class="list-item"></li>');
-    var button = $('<button type="button" class="btn btn-outline-dark btn-sm btn-block"></button').text(pokemon.name);
+    var button = $('<button type="button" class="btn btn-outline-dark btn-sm btn-block" data-target="#exampleModal" data-toggle="modal"></button>');
+    button.text(pokemon.name);
     pokemonList.append(listItem);
     listItem.append(button);
     button.on("click", function() {
@@ -68,58 +68,32 @@ var pokemonRepository = (function () {
   }
 
   function showModal(pokemon) {
-    // Clear all existing modal content
-    modalContainer.html('');
-    modalContainer.addClass('is-visible');
-
-    var modal = $('<div class="modal"></div>');
-    modalContainer.append(modal);
+    var modalBody = $(".modal-body");
+    var modalTitle = $(".modal-title");
+    modalBody.empty();
+    modalTitle.empty();
 
     // Adding the new modal content
-    var closeButtonElement = $('<button class = "modal-close"></button>').text('X');
-    modal.append(closeButtonElement);
 
     var nameElement = $('<h1></h1>').text(pokemon.name);
-    modal.append(nameElement);
+    modalTitle.append(nameElement);
 
     // Img takes .attr, not .html!!! 'src' is needed
     var imageElement = $('<img>').attr('src', pokemon.imageUrl);
-    modal.append(imageElement);
+    modalBody.append(imageElement);
 
     var heightElement = $('<p></p>').text('Height: ' + pokemon.height);
-    modal.append(heightElement);
+    modalBody.append(heightElement);
 
     var weightElement = $('<p></p>').text('Weight: ' + pokemon.weight);
-    modal.append(weightElement);
+    modalBody.append(weightElement);
 
     var typesElement = $('<p></p>').text('Type: ' + pokemon.types.join(', '));
-    modal.append(typesElement);
+    modalBody.append(typesElement);
 
     var abilitiesElement = $('<p></p>').text('Abilities: ' + pokemon.abilities.join(', '));
-    modal.append(abilitiesElement);
-
-   // Modal closes upon clicking the close button
-    closeButtonElement.on('click', hideModal);
+    modalBody.append(abilitiesElement);
   }
-
-  function hideModal() {
-    modalContainer.removeClass('is-visible');
-  }
-
-   // Modal closes upon hitting Esc
-  $(window).on('keydown', (e) => {
-     if (e.key === 'Escape' && modalContainer.hasClass('is-visible')) {
-       hideModal();
-     }
-   });
-
-   // Modal closes upon clicking outside of it
-   modalContainer.on('click', (e) => {
-     var target = e.target;
-     if ($(target).is(modalContainer)) {
-       hideModal();
-     }
-   });
 
   return {
     add: add,
@@ -127,7 +101,6 @@ var pokemonRepository = (function () {
     addListItem: addListItem,
     loadList: loadList,
     showModal: showModal,
-    hideModal: hideModal,
     /* showDetails and loadDetails are private functions and as we are not using them from outside the IIFE
     they don't NEED to be returned */
     showDetails: showDetails,
