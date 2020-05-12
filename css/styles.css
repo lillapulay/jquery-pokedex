@@ -70,13 +70,18 @@ body {
   margin: 5px;
 }
 
+.modal-open {
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-right: 0 !important;
+}
+
 .modal-content {
   box-sizing: border-box;
   background: no-repeat bottom/60% url("../img/modalwallpaper.jpg"); /* Source: https://cdn.wallpapersafari.com/52/50/jynW2C.jpg */
   background-color: #000;
   background-size: 100%;
   padding: 5px;
-  margin: auto;
   border-radius: 50px;
   border-width: 5px;
   border-style: solid;
@@ -86,33 +91,38 @@ body {
   letter-spacing: 3px;
 }
 
-.modal-title {
+.modal-header {
   position: relative;
+}
+
+.close {
+  opacity: 0.8;
+  font-size: 32px;
+}
+
+.close button {
+  position: absolute;
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.close span {
+  color: white;
+}
+
+#exampleModalLabel {
+  position: absolute;
   margin: 0 auto;
+  text-align: center;
   line-height: 100%;
   color: #fff5e6;
   text-transform: uppercase;
   font-size: 48px;
   letter-spacing: 5px;
 }
-
-.close {
-  position: absolute;
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  color: #fff5e6;
-  text-decoration: none;
-  font-size: 32px;
-  margin-right: 15px;
-}
-
-/*
-.close:hover,
-.close:focus {
-  text-color: white;
-}
-*/
 
 .modal-body {
   text-align: center;
@@ -136,12 +146,8 @@ body {
     width: 80%;
   }
 
-  .pokemon-list {
+  #pokemon-list {
     margin-top: 160px;
     width: 100%;
-  }
-
-  .pokemon-list li {
-    max-width: 100%;
   }
 }
