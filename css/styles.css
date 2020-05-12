@@ -98,7 +98,6 @@ body {
 
 .close {
   position: absolute;
-  float: right;
   border: 0;
   text-decoration: none;
   opacity: 0.8;
