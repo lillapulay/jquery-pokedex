@@ -1,5 +1,3 @@
-/* Will define variables a little further into this exercise */
-
 * {
   box-sizing: border-box;
 }
@@ -13,15 +11,6 @@ body {
   font-weight: 700;
 }
 
-h1 {
-  font-size: 48px;
-  letter-spacing: 3px;
-  color: #fff5e6;
-  padding-top: 5px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 .navbar {
   background-image: linear-gradient(to right, #251e0e, #3e3015);
 }
@@ -29,6 +18,9 @@ h1 {
 .nav-item {
   font-size: 24px;
   letter-spacing: 3px;
+}
+.navbar-toggler-icon {
+  color: white;
 }
 
 .navbar a {
@@ -85,6 +77,11 @@ h1 {
   opacity: 0.8;
 }
 
+.list-group-item:first-child,
+.list-group-item:last-child {
+  border-radius: 15px;
+}
+
 .list-group-item {
   margin: 5px;
 }
@@ -114,9 +111,9 @@ h1 {
   width: 450px;
 }
 
-.pokemon-list {
+#pokemon-list {
   list-style-type: none;
-  margin-top: 40px;
+  margin-top: 50px;
   padding: 0;
   width: 80%;
 }
@@ -150,9 +147,20 @@ h1 {
   line-height: 100%;
 }
 
+.modal-content h1 {
+  font-size: 48px;
+  letter-spacing: 5px;
+  color: #fff5e6;
+  padding-top: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
 .modal p {
   text-align: center;
   text-transform: capitalize;
+  letter-spacing: 3px;
   color: #fff;
   font-size: 24px;
   line-height: 70%;
