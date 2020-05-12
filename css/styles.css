@@ -19,50 +19,34 @@ body {
   font-size: 24px;
   letter-spacing: 3px;
 }
-.navbar-toggler-icon {
-  color: white;
+
+.listing {
+  text-align: center;
+  margin-bottom: 40px;
+  float: left;
+  margin-left: 10%;
+  width: 450px;
 }
 
-.navbar a {
-  color: #FFEBCD;
-  transition-duration: 0.5s;
-  transition-property: opacity;
+#pokemon-list {
+  margin-top: 90px;
+  padding: 0;
+  width: 80%;
 }
 
-.navbar a:hover, .navbar a:focus {
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.navbar a:visited {
-  color: #FAEBD7;
-}
-
-.navbar a:active {
-  color: #DEB887;
-}
-
-/* Overwriting Bootstrap default */
 .btn {
-  border: none;
-  display: inline-block;
   font-family: inherit;
-  background: none;
-  /*background-color: #ffad33;*/
   background-image: linear-gradient(to bottom right, #fbcd73, #866a29);
   color: #FFEFD5;
   font-weight: 600;
   font-size: 28px;
-  letter-spacing: 2px;
-  text-decoration: none;
+  letter-spacing: 4px;
   text-transform: capitalize;
-  /*padding: 10px;*/
+  border: none;
   border-radius: 15px;
   border-bottom: 2px solid #2b2b2b;
   transition-duration: 0.4s;
   transition-property: opacity;
-  /* Will adjust depending on final outlook */
   width: 100%;
   max-width: 550px;
   min-width: 150px;
@@ -86,88 +70,59 @@ body {
   margin: 5px;
 }
 
-.close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #fff5e6;
-  text-decoration: none;
-  font-size: 32px;
-  margin-right: 15px;
-  margin-top: 15px;
-}
-
-.close:hover,
-.close:focus {
-  text-color: white;
-}
-
-.listing {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  float: left;
-  margin-left: 10%;
-  width: 450px;
-}
-
-#pokemon-list {
-  list-style-type: none;
-  margin-top: 50px;
-  padding: 0;
-  width: 80%;
-}
-
-.pokemon-list li {
-  margin: 0;
-}
-
 .modal-content {
-  margin: auto;
-  display: inline-block;
   box-sizing: border-box;
-  /*background-image: linear-gradient(#866a29, #000);*/
   background: no-repeat bottom/60% url("../img/modalwallpaper.jpg"); /* Source: https://cdn.wallpapersafari.com/52/50/jynW2C.jpg */
   background-color: #000;
   background-size: 100%;
   padding: 5px;
+  margin: auto;
   border-radius: 50px;
-  width: 100%;
-  max-width: 450px;
-  text-align: center;
-  letter-spacing: 2px;
   border-width: 5px;
   border-style: solid;
   border-image: linear-gradient(to bottom, #e46d33, #000) 1 100%;
+  width: 100%;
+  max-width: 450px;
+  letter-spacing: 3px;
 }
 
-#exampleModalLabel {
+.modal-title {
+  position: relative;
   margin: 0 auto;
-  text-align: center;
   line-height: 100%;
-}
-
-.modal-content h1 {
+  color: #fff5e6;
+  text-transform: uppercase;
   font-size: 48px;
   letter-spacing: 5px;
-  color: #fff5e6;
-  padding-top: 5px;
-  text-align: center;
-  text-transform: uppercase;
 }
 
+.close {
+  position: absolute;
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  color: #fff5e6;
+  text-decoration: none;
+  font-size: 32px;
+  margin-right: 15px;
+}
 
-.modal p {
+/*
+.close:hover,
+.close:focus {
+  text-color: white;
+}
+*/
+
+.modal-body {
   text-align: center;
   text-transform: capitalize;
   letter-spacing: 3px;
-  color: #fff;
+  color: #fff5e6;
   font-size: 24px;
   line-height: 70%;
 }
 
-/* Will improve this part once the site has a little more content and button sizes are clear*/
 @media all and (max-width: 750px) {
 
   body {
