@@ -100,13 +100,14 @@ body {
   font-size: 32px;
 }
 
-.close button {
+.close {
   position: absolute;
   float: right;
   -webkit-appearance: none;
   border: 0;
   text-decoration: none;
-  margin-right: 15px;
+  right: 20px;
+  top: 15px;
 }
 
 .close span {
@@ -114,7 +115,6 @@ body {
 }
 
 #exampleModalLabel {
-  position: absolute;
   margin: 0 auto;
   text-align: center;
   line-height: 100%;
