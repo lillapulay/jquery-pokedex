@@ -6,7 +6,6 @@ body {
   background: no-repeat right/50% url("../img/wallpaper3.jpg"); /*Source: https://wallpapercave.com/wp/QxnYBjq.jpg */
   background-size: cover;
   background-attachment: fixed;
-  background-color: #cccccc;
   font-family: 'Just Another Hand', sans-serif;
   font-weight: 700;
 }
@@ -18,6 +17,7 @@ body {
 .nav-item {
   font-size: 24px;
   letter-spacing: 3px;
+  font-weight: 100;
 }
 
 .listing {
@@ -31,7 +31,7 @@ body {
 #pokemon-list {
   margin-top: 90px;
   padding: 0;
-  width: 80%;
+  width: 100%;
 }
 
 .btn {
@@ -70,6 +70,7 @@ body {
   margin: 5px;
 }
 
+/* Fixes the flickering background when opening the modal */
 .modal-open {
   overflow: hidden;
   overflow-y: scroll;
@@ -96,16 +97,12 @@ body {
 }
 
 .close {
-  opacity: 0.8;
-  font-size: 32px;
-}
-
-.close {
   position: absolute;
   float: right;
-  -webkit-appearance: none;
   border: 0;
   text-decoration: none;
+  opacity: 0.8;
+  font-size: 32px;
   right: 20px;
   top: 15px;
 }
@@ -130,7 +127,7 @@ body {
   letter-spacing: 3px;
   color: #fff5e6;
   font-size: 24px;
-  line-height: 70%;
+  line-height: 85%;
 }
 
 @media all and (max-width: 750px) {
