@@ -1,5 +1,5 @@
 //IIFE wrap
-var pokemonRepository = (function () {
+var pokemonRepository = (function() {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -14,12 +14,14 @@ var pokemonRepository = (function () {
 
   function addListItem(pokemon) {
     var pokemonList = $('#pokemon-list');
-    var button = $('<button type="button" class="btn btn-outline-dark btn-sm btn-block list-group-item" data-target="#exampleModal" data-toggle="modal"></button>');
+    var button = $(
+      '<button type="button" class="btn btn-outline-dark btn-sm btn-block list-group-item" data-target="#exampleModal" data-toggle="modal"></button>'
+    );
     button.text(pokemon.name);
-    pokemonList.append(button)
-    button.on("click", function() {
+    pokemonList.append(button);
+    button.on('click', function() {
       showDetails(pokemon);
-    })
+    });
   }
 
   function showDetails(pokemon) {
@@ -48,26 +50,27 @@ var pokemonRepository = (function () {
     var url = pokemon.detailsUrl;
     return $.ajax(url)
       .then(function(details) {
-      // Now we add the details to the item
-      pokemon.imageUrl = details.sprites.front_default;
-      pokemon.height = details.height;
-      pokemon.weight = details.weight;
-      pokemon.types = [];
+        // Now we add the details to the item
+        pokemon.imageUrl = details.sprites.front_default;
+        pokemon.height = details.height;
+        pokemon.weight = details.weight;
+        pokemon.types = [];
         for (var i = 0; i < details.types.length; i++) {
           pokemon.types.push(details.types[i].type.name);
-        };
-      pokemon.abilities = [];
+        }
+        pokemon.abilities = [];
         for (var i = 0; i < details.abilities.length; i++) {
           pokemon.abilities.push(details.abilities[i].ability.name);
-        };
-    }).catch(function (e) {
-      console.error(e);
-    });
+        }
+      })
+      .catch(function(e) {
+        console.error(e);
+      });
   }
 
   function showModal(pokemon) {
-    var modalBody = $(".modal-body");
-    var modalTitle = $(".modal-title");
+    var modalBody = $('.modal-body');
+    var modalTitle = $('.modal-title');
     modalBody.empty();
     modalTitle.empty();
 
@@ -89,7 +92,9 @@ var pokemonRepository = (function () {
     var typesElement = $('<p></p>').text('Type: ' + pokemon.types.join(', '));
     modalBody.append(typesElement);
 
-    var abilitiesElement = $('<p></p>').text('Abilities: ' + pokemon.abilities.join(', '));
+    var abilitiesElement = $('<p></p>').text(
+      'Abilities: ' + pokemon.abilities.join(', ')
+    );
     modalBody.append(abilitiesElement);
   }
 
@@ -108,7 +113,7 @@ var pokemonRepository = (function () {
 
 pokemonRepository.loadList().then(function() {
   // Now the data is loaded!
-  pokemonRepository.getAll().forEach(function(pokemon){
+  pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
 });
