@@ -12,10 +12,15 @@ body {
 
 .navbar {
   background-image: linear-gradient(to right, #251e0e, #3e3015);
+  max-height: 40px;
+}
+
+.navbar img {
+  filter: sepia(80%);
 }
 
 .nav-item {
-  font-size: 24px;
+  font-size: 18px;
   letter-spacing: 3px;
   font-weight: 100;
 }
