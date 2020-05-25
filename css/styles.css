@@ -12,7 +12,6 @@ body {
 
 .navbar {
   background-image: linear-gradient(to right, #251e0e, #3e3015);
-  max-height: 40px;
 }
 
 .navbar img {
@@ -148,7 +147,7 @@ body {
   }
 
   #pokemon-list {
-    margin-top: 160px;
+    margin-top: 80px;
     width: 100%;
   }
 }
