@@ -1,4 +1,4 @@
-# jquery-pokedex
+# jQuery Pokedex
 
 ![app demo](/img/poqu.png)
 
